@@ -1,5 +1,4 @@
 import { buildConfig } from 'payload'
-import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
@@ -40,13 +39,6 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-
-  // Database
-  db: postgresAdapter({
-    pool: {
-      connectionString: .env.DATABASE_URI,
-    },
-  }),
 
   // Rich text editor
   editor: lexicalEditor(),

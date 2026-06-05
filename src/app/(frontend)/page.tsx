@@ -17,49 +17,60 @@ export const metadata: Metadata = {
 }
 
 export default async function HomePage() {
-  const payload = await getPayload({ config })
+  try {
+    const payload = await getPayload({ config })
 
-  // Fetch all data in parallel using Payload Local API
-  const [heroData, servicesData, statsData, customersData, blogData] =
-    await Promise.all([
-      payload.findGlobal({ slug: 'hero-slider' }),
-      payload.find({
-        collection: 'services',
-        where: { status: { equals: 'published' } },
-        sort: 'order',
-        limit: 20,
-      }),
-      payload.findGlobal({ slug: 'company-stats' }),
-      payload.find({
-        collection: 'customers',
-        sort: 'order',
-        limit: 50,
-      }),
-      payload.find({
-        collection: 'blogs',
-        where: { status: { equals: 'published' } },
-        sort: '-publishedAt',
-        limit: 6,
-      }),
-    ])
+    // Fetch all data in parallel using Payload Local API
+    const [heroData, servicesData, statsData, customersData, blogData] =
+      await Promise.all([
+        payload.findGlobal({ slug: 'hero-slider' }),
+        payload.find({
+          collection: 'services',
+          where: { status: { equals: 'published' } },
+          sort: 'order',
+          limit: 20,
+        }),
+        payload.findGlobal({ slug: 'company-stats' }),
+        payload.find({
+          collection: 'customers',
+          sort: 'order',
+          limit: 50,
+        }),
+        payload.find({
+          collection: 'blogs',
+          where: { status: { equals: 'published' } },
+          sort: '-publishedAt',
+          limit: 6,
+        }),
+      ])
 
-  return (
-    <main>
-      <HeroSlider
-        slides={heroData.slides as any}
-        autoplayDelay={heroData.autoplayDelay}
-        enableGrayscale={heroData.enableGrayscale}
-      />
+    return (
+      <main>
+        <HeroSlider
+          slides={heroData.slides as any}
+          autoplayDelay={heroData.autoplayDelay}
+          enableGrayscale={heroData.enableGrayscale}
+        />
+        <h1>Hello world</h1>
+        <ServicesGrid services={servicesData.docs as any} />
 
-      <ServicesGrid services={servicesData.docs as any} />
+        <CompanyStats stats={statsData.stats} style={statsData.backgroundStyle} />
 
-      <CompanyStats stats={statsData.stats} style={statsData.backgroundStyle} />
+        <CustomersLogos customers={customersData.docs} />
 
-      <CustomersLogos customers={customersData.docs} />
+        <LatestBlogPosts posts={blogData.docs} />
 
-      <LatestBlogPosts posts={blogData.docs} />
-
-      <ContactCTA />
-    </main>
-  )
+        <ContactCTA />
+      </main>
+    )
+  } catch (error) {
+    console.error('Payload initialization or data fetching failed:', error)
+    return (
+      <div style={{ padding: '2rem', color: 'red' }}>
+        <h1>Error</h1>
+        <p>{error instanceof Error ? error.message : 'An unknown error occurred'}</p>
+        <pre>{JSON.stringify(error, null, 2)}</pre>
+      </div>
+    )
+  }
 }
