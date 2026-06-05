@@ -5,6 +5,7 @@
   --foreground: #0f172a;
   --font-inter: 'Inter', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
+  --font-kanit: 'Kanit', sans-serif;
 }
 
 @theme inline {
@@ -13,8 +14,9 @@
   --color-brand-default: #0055FF;
   --color-brand-dark: #003399;
   --color-brand-light: #6699FF;
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-kanit);
   --font-heading: var(--font-poppins);
+  --font-kanit: var(--font-kanit);
 }
 
 @media (prefers-color-scheme: dark) {
