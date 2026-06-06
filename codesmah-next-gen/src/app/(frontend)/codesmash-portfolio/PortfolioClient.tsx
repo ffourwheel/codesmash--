@@ -44,31 +44,17 @@ const PROJECTS: Project[] = [
   },
   {
     id: 3,
-    title: 'Learning Center Management System',
-    category: 'Web Development',
-    image: '/image/codesmash-portfolio/learning center management system.jpg',
+    title: 'SF Cinema Game Development',
+    category: 'Gamification',
+    image: '/image/codesmash-portfolio/SF Cinema Game Development .jpg',
     imageType: 'rectangle',
   },
   {
     id: 4,
-    title: 'dtac Sustainability',
-    category: 'Web Development',
-    image: '/image/codesmash-portfolio/dtac Sustainability.jpg',
+    title: 'dtac Matching',
+    category: 'Gamification',
+    image: '/image/codesmash-portfolio/dtac Matching .jpg',
     imageType: 'squre',
-  },
-  {
-    id: 5,
-    title: 'dtac Sustainability',
-    category: 'Web Development',
-    image: '/image/codesmash-portfolio/dtac Sustainability.jpg',
-    imageType: 'squre',
-  },
-  {
-    id: 6,
-    title: 'Learning Center Management System',
-    category: 'Web Development',
-    image: '/image/codesmash-portfolio/learning center management system.jpg',
-    imageType: 'rectangle',
   },
 ]
 
