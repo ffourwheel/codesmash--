@@ -33,7 +33,7 @@ const PROJECTS: Project[] = [
     title: 'dtac Sustainability',
     category: 'Web Development',
     image: '/image/codesmash-portfolio/dtac Sustainability.jpg',
-    imageType: 'squre',
+    imageType: 'square',
   },
   {
     id: 2,
@@ -54,11 +54,81 @@ const PROJECTS: Project[] = [
     title: 'dtac Matching',
     category: 'Gamification',
     image: '/image/codesmash-portfolio/dtac Matching .jpg',
-    imageType: 'squre',
+    imageType: 'square',
+  },
+  {
+    id: 5,
+    title: 'dtac Migration',
+    category: 'Software Development',
+    image: '/image/codesmash-portfolio/data migration.jpg',
+    imageType: 'rectangle',
+  },
+  {
+    id: 6,
+    title: 'dtac Work From Home',
+    category: 'Gamification',
+    image: '/image/codesmash-portfolio/dtac Work From Home.jpg',
+    imageType: 'square',
+  },
+  {
+    id: 7,
+    title: 'ใจดีแจกสุข',
+    category: 'Mobile App',
+    image: '/image/codesmash-portfolio/jai dee jak suk.png',
+    imageType: 'square',
+  },
+  {
+    id: 8,
+    title: 'Human Recognition',
+    category: 'A.I.',
+    image: '/image/codesmash-portfolio/Human Recognition.jpg',
+    imageType: 'rectangle',
+  },
+  {
+    id: 9,
+    title: 'SNAKE LADDER [AirAsia x True]',
+    category: 'Gamification',
+    image: '/image/codesmash-portfolio/SNAKE LADDER [AirAsia x True].png',
+    imageType: 'square',
+  },
+  {
+    id: 10,
+    title: 'dtac Gamification',
+    category: 'Gamification',
+    image: '/image/codesmash-portfolio/dtac Gamification.jpg',
+    imageType: 'rectangle',
+  },
+  {
+    id: 11,
+    title: 'TMB Interactive Screen Interactive',
+    category: 'Interactive',
+    image: '/image/codesmash-portfolio/TMB Interactive Screen Interactive.jpg',
+    imageType: 'rectangle',
+  },
+  {
+    id: 12,
+    title: 'Mercedes TROPHY Web Development',
+    category: 'Web Development',
+    image: '/image/codesmash-portfolio/Mercedes TROPHY Web Development.jpg',
+    imageType: 'square',
+  },
+  {
+    id: 13,
+    title: 'ระบบติดตามและเฝ้าระวังการแพร่ระบาดเชื้อไวรัส COVID-19',
+    category: 'Web Development',
+    image: '/image/codesmash-portfolio/covid.png',
+    imageType: 'rectangle',
+  },
+  {
+    id: 14,
+    title: 'Queue Reservation Systems',
+    category: 'Web Development',
+    image: '/image/codesmash-portfolio/Queue Reservation Systems .jpg',
+    imageType: 'rectangle',
   },
 ]
 
-const PAGE_SIZE = 6
+const PAGE_SIZE = 8
 
 // ── PortfolioClient ────────────────────────────────────────
 export default function PortfolioClient() {
@@ -77,17 +147,9 @@ export default function PortfolioClient() {
   }
 
   const getContainerStyle = (type: string) => {
-    const baseClass = 'group relative overflow-hidden bg-gray-100 h-64 cursor-pointer rounded-md'
-
-    if (type === 'squre') {
-      // return `${baseClass} w-[424px] h-[424px]`
-      return `${baseClass} col-span-1 h-[424px]`
-    } else if (type === 'rectangle') {
-      // return `${baseClass} w-[871px] h-[423px] md:col-span-2`
-      return `${baseClass} col-span-2 h-[424px]`
-    } else {
-      return 'baseClass'
-    }
+    const baseClass =
+      'relative overflow-hidden bg-gray-100 cursor-pointer rounded-md h-[424px] group'
+    return baseClass // h-[424px] ทุก type เหมือนกัน
   }
 
   const visible = filtered.slice(0, visibleCount)
@@ -117,15 +179,27 @@ export default function PortfolioClient() {
 
       {/* Project Grid */}
 
-      <div className="mt-10 grid grid-cols-3 gap-6 ">
+      <div className="mt-10 grid grid-cols-3 gap-8 ">
         {visible.map((project) => (
-          <div key={project.id} className={getContainerStyle(project.imageType)}>
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
+          <div
+            key={project.id}
+            className={project.imageType === 'square' ? 'col-span-1' : 'col-span-2'}
+          >
+            {/* Image */}
+            <div className={getContainerStyle(project.imageType)}>
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+
+            {/* Text */}
+            <div className="mt-3">
+              <p className="text-base text-black font-bold">{project.title}</p>
+              <h3 className="text-base font-lg text-gray-900 mt-1">{project.category}</h3>
+            </div>
           </div>
         ))}
       </div>
@@ -140,9 +214,9 @@ export default function PortfolioClient() {
         <div className="mt-12 flex justify-center">
           <button
             onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
-            className="px-8 py-3 border-2 border-gray-900 text-gray-900 font-semibold rounded-full hover:bg-gray-900 hover:text-black transition-colors"
+            className="mt-20 px-30 py-3 border-1 border-gray-900 text-gray-900 font-semibold rounded-md hover:bg-red-600 hover:text-white transition-colors"
           >
-            Load more
+            more
           </button>
         </div>
       )}
