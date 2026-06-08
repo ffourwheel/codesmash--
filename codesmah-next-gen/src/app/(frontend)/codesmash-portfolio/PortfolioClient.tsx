@@ -220,11 +220,11 @@ export default function PortfolioClient() {
                 {/* Category ↔ Show project — rolling สลับกัน */}
                 <div className="overflow-hidden mt-2 h-6 relative">
                   {/* Category — slide ออกขึ้นบนตอน hover */}
-                  <h3 className="absolute text-base font-medium text-black transition-transform duration-500 ease-out group-hover:-translate-y-full">
+                  <h3 className="absolute text-base font-normal text-black transition-transform duration-500 ease-out group-hover:-translate-y-full">
                     {project.category}
                   </h3>
                   {/* Show project — slide ขึ้นมาจากล่างตอน hover */}
-                  <span className="absolute text-base font-medium text-black translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
+                  <span className="absolute text-base font-normal text-black translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0">
                     Show project ⎯⎯
                   </span>
                 </div>
