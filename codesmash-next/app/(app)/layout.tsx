@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Kanit } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -21,9 +21,10 @@ const poppins = Poppins({
 
 // Configure Thai font
 const kanit = Kanit({
-  subsets: ['thai', 'latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-kanit', // สร้างตัวแปร CSS
+  weight: ['300', '400', '500', '600'],
+  subsets: ["thai", "latin"],
+  variable: '--font-kanit',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -50,3 +51,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

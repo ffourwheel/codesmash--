@@ -12,17 +12,18 @@ export function Navbar() {
   // Using anchor links to prevent 404 errors since it's mostly a single page layout
   const navLinks = [
     { name: 'หน้าหลัก', href: '/' },
-    { name: 'งานของเรา', href: '/#capabilities' },
-    { name: 'ข่าวสาร', href: '/#' },
-    { name: 'ร่วมงานกับเรา', href: '/#careers-cta' },
+    { name: 'งานของเรา', href: '/portfolio' },
+    { name: 'ข่าวสาร', href: '/blog' },
+    { name: 'ร่วมงานกับเรา', href: '/careers' },
   ];
 
   return (
     <nav className="w-full bg-white z-50 sticky top-0 border-b border-gray-100 transition-colors duration-300">
-      <div className="container mx-auto px-6 xl:px-12 h-[100px] flex items-center justify-between max-w-[1400px]">
+      <div className="mx-auto px-4 xl:px-6 h-[100px] flex items-center justify-between max-w-[1600px]">
         {/* Left Side: Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 -ml-4 md:-ml-8">
           <Link href="/" className="text-[24px] font-extrabold text-black uppercase tracking-wider">
+            <img src="/images/tUltZ_aAWG4k6Eu4nnWlxWjhNjigycWh2o1X.png" alt="CODESMASH Logo" className="h-20 w-auto mr-2 inline-block" />
             CODESMASH
           </Link>
         </div>

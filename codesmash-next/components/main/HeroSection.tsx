@@ -129,7 +129,7 @@ function HeroSection() {
             </p>
 
             <Link
-              href="/#"
+              href="/#what-we-do"
               className="inline-block bg-black border border-[#333] text-white px-6 py-3 text-sm font-bold hover:bg-[#d90a2c] hover:border-[#d90a2c] transition-colors duration-300 rounded-sm"
             >
               Get Started
@@ -224,7 +224,7 @@ export function VisionMission() {
             </h2>
             <div>
               <Link 
-                href="/services" 
+                href="/#what-we-do" 
                 className="inline-block bg-[#161617] border border-transparent text-white px-[20px] py-[12px] text-sm font-extrabold hover:bg-transparent hover:border-white transition-all duration-300"
               >
                 View Services

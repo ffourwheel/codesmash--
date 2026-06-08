@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export function BlogHighlights() {
+export function Highlights() {
   const [selectedArticleId, setSelectedArticleId] = useState<number | null>(null);
 
   const articles = [
@@ -28,11 +28,11 @@ export function BlogHighlights() {
     <>
       <section className="w-full bg-[#f8f8f8] py-24 pb-32" id="blog">
         <div className="container mx-auto px-6 max-w-[1400px]">
-          <h4 className="text-[#6b7280] text-[12px] font-bold tracking-widest uppercase mb-4">
-            NEWS AND ARTICLES
+          <h4 className="text-[60px] font-extrabold text-black mb-2 tracking-tight">
+            Blog
           </h4>
-          <h2 className="text-[44px] font-extrabold text-black mb-16 tracking-tight">
-            สิ่งที่น่าสนใจ
+          <h2 className="text-[#6b7280] text-[12px] font-bold tracking-widest uppercase mb-12">
+            Interesting articles from CODESMASH
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -320,92 +320,6 @@ export function BlogHighlights() {
           </div>
         </div>
       )}
-    </>
-  );
-}
-
-export function ContactSection() {
-  return (
-    <section className="w-full bg-[#fcfcfc]" id="contact">
-      <div className="flex flex-col lg:flex-row w-full min-h-[550px]">
-        {/* Left Side: Map Area */}
-        <div className="w-full lg:w-[60%] relative bg-[#eef1f5] h-[400px] lg:h-auto">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7742.808986816204!2d100.61723209543786!3d13.994013556136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d7f81a20a8521%3A0x4e001f5d7dba4bb0!2sCODESMASH%20CO.%2C%20LTD.!5e0!3m2!1sth!2sth!4v1780661235877!5m2!1sth!2sth" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0 w-full h-full"
-          ></iframe>
-        </div>
-
-        {/* Right Side: Contact Info */}
-        <div className="w-full lg:w-[40%] bg-white grid grid-cols-1 md:grid-cols-2 gap-12 p-16 lg:p-24 shadow-[-20px_0_40px_-15px_rgba(0,0,0,0.05)] z-10 relative">
-          
-          {/* Column 1: Office Contact */}
-          <div className="flex flex-col">
-            <div className="w-25 h-25 relative mb-8">
-              <img src="/images/tUltZ_aAWG4k6Eu4nnWlxWjhNjigycWh2o1X.png" alt="Logo" className="w-full h-full object-contain " />
-            </div>
-            <h3 className="text-[18px] font-extrabold text-black mb-4 tracking-tight">Office Contact</h3>
-            <p className="text-black font-extrabold text-[14px] mb-1">ติดต่องาน</p>
-            <p className="text-black text-[14px] mb-4">smash@codesmash.net</p>
-            <p className="text-black text-[14px] font-bold mb-10">Mobile : +66(0)64-928-7914</p>
-            <h4 className="font-extrabold text-black text-[14px] mb-2 tracking-tight">เวลาทำการ</h4>
-            <p className="text-black text-[14px] leading-[1.6]">จันทร์ - ศุกร์<br/>9.00 - 17.00</p>
-          </div>
-          {/* Column 2: Office Location */}
-          <div className="flex flex-col pt-[132px]">
-            <div className="flex items-center gap-3 mb-3">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="#d90a2c"/>
-              </svg>
-              <h3 className="text-[17px] font-extrabold text-black tracking-tight">Office Location</h3>
-            </div>
-            <p className="text-black text-[13px] leading-[1.8]">
-              96 ชั้นที่ 1 หมู่ 1 ตำบลคลองหนึ่ง อำเภอคลองหลวง<br/>
-              จังหวัดปทุมธานี 12120
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function CareersCTA() {
-  return (
-    <section className="w-full bg-[#17161a] py-10 text-center relative overflow-hidden h-[300px]" id="careers-cta">
-      {/* Background element for aesthetics */}
-      <div className="absolute inset-0 z-0 bg-[url('/images/GNoAGw_q-61JFKPXO7AiYQOH4XFZ4Kh9sdIC.jpg')] bg-cover bg-center opacity-10" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-[14px] md:text-[16px] font-bold tracking-widest text-[#d90a2c] uppercase mb-4">
-          CAREERS
-        </h2>
-        <h3 className="text-[32px] md:text-[48px] font-extrabold text-white mb-8 tracking-tight">
-          ร่วมเป็นส่วนหนึ่งกับเรา
-        </h3>
-        
-        <Link 
-          href="/careers"
-          className="inline-block bg-[#d90a2c] border border-[#d90a2c] text-white px-[24px] py-[16px] text-lg font-extrabold hover:bg-opacity-90 transition-all duration-300"
-        >
-          Send your Resume
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-export default function BlogCareersContact() {
-  return (
-    <>
-      <BlogHighlights />
-      <ContactSection />
-      <CareersCTA />
     </>
   );
 }
